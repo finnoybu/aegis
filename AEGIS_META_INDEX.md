@@ -1,3 +1,5 @@
+← [Back to README](README.md)
+
 ## Aegis Canonical Document Index & Governance
 
 ## What this is

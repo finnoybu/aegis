@@ -13,3 +13,13 @@ Thumbs.db
 # Future runtime artifacts
 logs/
 mem/
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Virtual environments
+.venv/
+venv/
+ENV/
