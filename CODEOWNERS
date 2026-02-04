@@ -1,0 +1,17 @@
+# CODEOWNERS
+
+# Canon & Governance
+/AEGIS_CANON.md        @finnoybu
+/AEGIS_META_INDEX.md  @finnoybu
+/AEGIS_DECISIONS.log  @finnoybu
+
+# Security & Permissions
+/AEGIS_SECURITY_MODEL.md      @finnoybu
+/AEGIS_ALLOWED_ACTIONS_*      @finnoybu
+
+# Schemas & Architecture
+/AEGIS_ACTION_SCHEMA.json    @finnoybu
+/AEGIS_RUNTIME_ARCHITECTURE.md @finnoybu
+
+# Default
+* @finnoybu
