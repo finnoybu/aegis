@@ -1,0 +1,66 @@
+{
+  "version": "v1",
+  "policy": "deny-by-default",
+  "allowed_actions": [
+    {
+      "action": "fs.read",
+      "description": "Read files within an approved path scope",
+      "risk": "Low",
+      "reversible": true
+    },
+    {
+      "action": "fs.write",
+      "description": "Create or modify files within an approved path scope",
+      "risk": "Medium",
+      "reversible": true
+    },
+    {
+      "action": "fs.snapshot",
+      "description": "Create a reversible snapshot before a write",
+      "risk": "Low",
+      "reversible": true
+    },
+    {
+      "action": "render.html",
+      "description": "Render HTML from templates and data sources",
+      "risk": "Low",
+      "reversible": true
+    },
+    {
+      "action": "http.respond",
+      "description": "Respond to an incoming HTTP request with sanitized output",
+      "risk": "Medium",
+      "reversible": true
+    },
+    {
+      "action": "net.fetch",
+      "description": "Fetch data from allowlisted external domains (read-only)",
+      "risk": "Medium",
+      "reversible": true
+    },
+    {
+      "action": "app.launch",
+      "description": "Launch an application without automation",
+      "risk": "Low",
+      "reversible": true
+    },
+    {
+      "action": "app.automate",
+      "description": "Automate UI actions in a single application",
+      "risk": "High",
+      "reversible": false
+    },
+    {
+      "action": "index.local",
+      "description": "Index local content for semantic search",
+      "risk": "Low",
+      "reversible": true
+    },
+    {
+      "action": "summarize.local",
+      "description": "Summarize local content without external transmission",
+      "risk": "Low",
+      "reversible": true
+    }
+  ]
+}

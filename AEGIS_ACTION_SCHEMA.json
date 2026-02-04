@@ -1,0 +1,470 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://aegis.local/schemas/AEGIS_ACTION_SCHEMA.v0.1.json",
+  "title": "AEGIS_ACTION_SCHEMA",
+  "description": "Canonical schema for Aegis v1 plans, steps, tool envelopes, verifier reports, and audit events.",
+  "type": "object",
+  "required": [
+    "version",
+    "intent"
+  ],
+  "properties": {
+    "version": {
+      "type": "string",
+      "const": "v0.1"
+    },
+    "intent": {
+      "type": "object",
+      "required": [
+        "intent_id",
+        "user_goal",
+        "created_at_utc"
+      ],
+      "properties": {
+        "intent_id": {
+          "type": "string",
+          "description": "UUID"
+        },
+        "user_goal": {
+          "type": "string"
+        },
+        "created_at_utc": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "context_refs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/contextRef"
+          },
+          "default": []
+        }
+      },
+      "additionalProperties": false
+    },
+    "plan": {
+      "$ref": "#/$defs/plan"
+    },
+    "verification": {
+      "$ref": "#/$defs/verificationReport"
+    },
+    "approval": {
+      "$ref": "#/$defs/approvalState"
+    },
+    "execution": {
+      "$ref": "#/$defs/executionResult"
+    },
+    "audit_events": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/auditEvent"
+      },
+      "default": []
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "contextRef": {
+      "type": "object",
+      "required": [
+        "scheme",
+        "ref"
+      ],
+      "properties": {
+        "scheme": {
+          "type": "string",
+          "enum": [
+            "file",
+            "template",
+            "index",
+            "web",
+            "mem"
+          ]
+        },
+        "ref": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "riskLevel": {
+      "type": "string",
+      "enum": [
+        "Low",
+        "Medium",
+        "High"
+      ]
+    },
+    "plan": {
+      "type": "object",
+      "required": [
+        "plan_id",
+        "steps"
+      ],
+      "properties": {
+        "plan_id": {
+          "type": "string"
+        },
+        "steps": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/planStep"
+          }
+        },
+        "notes": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "planStep": {
+      "type": "object",
+      "required": [
+        "step_id",
+        "action",
+        "args",
+        "scope",
+        "risk",
+        "reversible",
+        "requires_confirmation"
+      ],
+      "properties": {
+        "step_id": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "action": {
+          "type": "string",
+          "description": "Must be present in AEGIS_ALLOWED_ACTIONS_V1.json"
+        },
+        "args": {
+          "type": "object"
+        },
+        "scope": {
+          "$ref": "#/$defs/scopeSpec"
+        },
+        "risk": {
+          "$ref": "#/$defs/riskLevel"
+        },
+        "reversible": {
+          "type": "boolean"
+        },
+        "requires_confirmation": {
+          "type": "boolean"
+        },
+        "validators": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": []
+        },
+        "dry_run_supported": {
+          "type": "boolean",
+          "default": true
+        }
+      },
+      "additionalProperties": false
+    },
+    "scopeSpec": {
+      "type": "object",
+      "required": [
+        "scope_token",
+        "constraints"
+      ],
+      "properties": {
+        "scope_token": {
+          "type": "string",
+          "description": "Opaque token referencing a granted scope"
+        },
+        "constraints": {
+          "type": "object",
+          "properties": {
+            "paths": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "default": []
+            },
+            "domains": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "default": []
+            },
+            "apps": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "default": []
+            },
+            "methods": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "default": []
+            },
+            "max_bytes": {
+              "type": "integer",
+              "minimum": 0
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "verificationReport": {
+      "type": "object",
+      "required": [
+        "status",
+        "checked_at_utc",
+        "findings"
+      ],
+      "properties": {
+        "status": {
+          "type": "string",
+          "enum": [
+            "PASS",
+            "FAIL",
+            "NEEDS_CLARIFICATION"
+          ]
+        },
+        "checked_at_utc": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "findings": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/verificationFinding"
+          },
+          "default": []
+        }
+      },
+      "additionalProperties": false
+    },
+    "verificationFinding": {
+      "type": "object",
+      "required": [
+        "severity",
+        "code",
+        "message"
+      ],
+      "properties": {
+        "severity": {
+          "type": "string",
+          "enum": [
+            "INFO",
+            "WARN",
+            "ERROR"
+          ]
+        },
+        "code": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        },
+        "step_id": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "approvalState": {
+      "type": "object",
+      "required": [
+        "state"
+      ],
+      "properties": {
+        "state": {
+          "type": "string",
+          "enum": [
+            "PENDING",
+            "APPROVED",
+            "EDITED",
+            "CANCELLED"
+          ]
+        },
+        "approved_at_utc": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time"
+        },
+        "approved_by": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "decision_notes": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "executionResult": {
+      "type": "object",
+      "required": [
+        "status",
+        "steps"
+      ],
+      "properties": {
+        "status": {
+          "type": "string",
+          "enum": [
+            "NOT_STARTED",
+            "IN_PROGRESS",
+            "COMPLETED",
+            "FAILED",
+            "ROLLED_BACK"
+          ]
+        },
+        "steps": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/executedStep"
+          },
+          "default": []
+        }
+      },
+      "additionalProperties": false
+    },
+    "executedStep": {
+      "type": "object",
+      "required": [
+        "step_id",
+        "trace_id",
+        "result"
+      ],
+      "properties": {
+        "step_id": {
+          "type": "integer"
+        },
+        "trace_id": {
+          "type": "string"
+        },
+        "result": {
+          "type": "string",
+          "enum": [
+            "SUCCESS",
+            "FAILURE",
+            "SKIPPED"
+          ]
+        },
+        "output_refs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/contextRef"
+          },
+          "default": []
+        },
+        "error": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "auditEvent": {
+      "type": "object",
+      "required": [
+        "timestamp_utc",
+        "event_type",
+        "intent_id",
+        "actor"
+      ],
+      "properties": {
+        "timestamp_utc": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "event_type": {
+          "type": "string",
+          "enum": [
+            "INTENT_CREATED",
+            "CONTEXT_ATTACHED",
+            "PLAN_PROPOSED",
+            "PLAN_VERIFIED",
+            "CARD_PRESENTED",
+            "USER_DECISION",
+            "STEP_EXECUTED",
+            "STEP_FAILED",
+            "ROLLBACK_CREATED",
+            "ROLLBACK_APPLIED",
+            "REFUSAL",
+            "CLARIFICATION_REQUESTED"
+          ]
+        },
+        "intent_id": {
+          "type": "string"
+        },
+        "actor": {
+          "type": "string",
+          "enum": [
+            "user",
+            "aegis",
+            "tool"
+          ]
+        },
+        "action": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "scope_token": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "inputs_redacted": {
+          "type": "boolean",
+          "default": true
+        },
+        "output_hash": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "diff_ref": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "result": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "reason": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

@@ -1,0 +1,9 @@
+# AEGIS DECISION LOG
+
+## 2026-01-26
+- Project initiated under the name "Aegis"
+- Defined as an OS-native Intent Engine, not a chatbot or agent
+- Adopted First Law: consequences before action
+- Chose illumination over automation as core philosophy
+- Established Intent Card as the primary interface primitive
+- Explicitly rejected silent autonomy in v1
