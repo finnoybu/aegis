@@ -1,4 +1,3 @@
-# AEGIS_META_INDEX.md
 ## Aegis Canonical Document Index & Governance
 
 ## What this is
@@ -138,15 +137,112 @@ Authoritative for execution permissions and safety enforcement.
 
 ---
 
-## Future Canonical Documents (Reserved)
+## Runtime Architecture
 
-The following documents do not yet exist but are expected to become
-canonical as the project progresses:
+### AEGIS_RUNTIME_ARCHITECTURE.md
+**Purpose**  
+Defines the canonical runtime architecture for Aegis.
 
-- AEGIS_RUNTIME_ARCHITECTURE.md
-- AEGIS_ACTION_SCHEMA.json
-- AEGIS_SECURITY_MODEL.md
-- AEGIS_REFUSAL_GUIDELINES.md
+**Authority**  
+Authoritative for system components, execution flow, and enforcement points.
+
+**Scope**
+- Daemon / orchestrator / model separation
+- Execution pipeline
+- Enforcement gates
+- Deployment topologies
+
+**Change Policy**
+- Versioned
+- Must remain consistent with AEGIS_CANON.md
+- Changes require decision log entry
+
+---
+
+## Action & Execution Schema
+
+### AEGIS_ACTION_SCHEMA.json
+**Purpose**  
+Machine-readable schema defining intents, plans, steps, verification, execution results, and audit events.
+
+**Authority**  
+Authoritative for structural validation and tool-driver contracts.
+
+**Scope**
+- Intent objects
+- Plan and step structure
+- Scope tokens
+- Verification reports
+- Audit event format
+
+**Change Policy**
+- Versioned
+- Backward compatibility strongly preferred
+- Changes require decision log entry
+
+---
+
+## Security Model
+
+### AEGIS_SECURITY_MODEL.md
+**Purpose**  
+Defines the threat model, trust boundaries, mitigations, and permission UX for Aegis.
+
+**Authority**  
+Authoritative for security posture and enforcement assumptions.
+
+**Scope**
+- Threat modeling
+- Capability and scope enforcement
+- Prompt injection mitigation
+- Audit and redaction rules
+
+**Change Policy**
+- Versioned
+- Must preserve First Law guarantees
+- Changes require security review + decision log entry
+
+---
+
+## Refusal & Clarification Behavior
+
+### AEGIS_REFUSAL_GUIDELINES.md
+**Purpose**  
+Defines how Aegis refuses, pauses, or proposes safe alternatives.
+
+**Authority**  
+Authoritative for refusal structure, tone, and non-execution behavior.
+
+**Scope**
+- Refusal conditions
+- Clarification rules
+- Safe alternative proposals
+- Audit requirements
+
+**Change Policy**
+- Versioned
+- Must remain consistent with Security Model
+- Changes require decision log entry
+
+---
+
+## Validation & Coherence
+
+### AEGIS_END_TO_END_WALKTHROUGH.md
+**Purpose**  
+End-to-end illustrative walkthrough validating coherence across all canonical documents.
+
+**Authority**  
+Canonical for system-level consistency checks.
+
+**Scope**
+- Intent to execution flow
+- UX gating behavior
+- Audit completeness
+
+**Change Policy**
+- Updated when canonical behavior changes
+- Must reflect current architecture and rules
 
 ---
 
