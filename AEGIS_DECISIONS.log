@@ -7,3 +7,9 @@
 - Chose illumination over automation as core philosophy
 - Established Intent Card as the primary interface primitive
 - Explicitly rejected silent autonomy in v1
+
+## 2026-02-03
+Decision: Formalize Aegis as a public, version-controlled repository.
+Rationale: Canonical governance, architecture, and security documents reached sufficient maturity
+to require durable versioning, external review, and change tracking.
+Impact: All future changes are governed by AEGIS_META_INDEX.md and logged explicitly.
