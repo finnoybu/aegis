@@ -27,6 +27,27 @@ Security posture:
 - No ICMP requirement
 - SSH is sole management interface
 
+## Development Tooling Baseline (Host-Only)
+
+The lab host includes a minimal, non-coupling set of development tools to
+support inspection and future Aegis checkout **without implying execution**.
+
+Installed tooling:
+- git
+- build-essential
+- curl, wget
+- unzip
+- jq
+- python3 (runtime only) with venv support
+
+Explicit exclusions:
+- No Aegis repository cloned
+- No virtual environments created
+- No daemons or services installed
+- No containers, sandboxes, or execution frameworks enabled
+
+This tooling is considered part of **host readiness**, not Aegis installation.
+
 ---
 
 ## Phase D — Aegis Runtime Scaffolding
