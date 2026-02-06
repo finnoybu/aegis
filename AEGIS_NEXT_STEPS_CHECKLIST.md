@@ -64,6 +64,13 @@ This phase may be partially complete without blocking Phase 1.
 - [ ] Decide on multi-NIC / DMZ model (future)
 - [ ] Implement network isolation (future, if required)
 
+### Phase 0.5 Completion Status
+
+Phase 0.5 is **complete enough to proceed with Phase 1**.
+
+Remaining items (ZFS pool creation, SSD mirroring, multi-NIC/DMZ) are
+**intentionally deferred** and do not block mediation-only development.
+
 ---
 
 ## Phase 1 — Mediation Skeleton (No Execution)
