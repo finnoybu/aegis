@@ -24,6 +24,23 @@ Aegis is designed to be:
 
 ---
 
+## Lab Environment (Reference)
+
+The reference development host (`aegis-lab`) used for controlled mediation testing
+is documented separately:
+
+- `docs/Aegis_Lab_Configuration.md`
+
+This document records:
+- OS hardening decisions
+- User and permission boundaries
+- Storage preparation state
+- Explicit non-capabilities (no execution, no autonomy)
+
+All Aegis development assumes this baseline unless explicitly stated otherwise.
+
+---
+
 ## Repository Structure (V0)
 
 ```
