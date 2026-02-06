@@ -1,3 +1,5 @@
+← [Back to docs README](README.md)
+
 # Hardware Inventory
 
 ## System Overview

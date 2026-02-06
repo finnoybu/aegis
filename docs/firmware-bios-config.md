@@ -1,3 +1,5 @@
+← [Back to docs README](README.md)
+
 # Firmware / BIOS Configuration
 
 ## Boot Mode

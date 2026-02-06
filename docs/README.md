@@ -1,3 +1,5 @@
+← [Back to repository README](../README.md)
+
 # Aegis Lab Documentation
 
 This directory contains authoritative documentation for the **Aegis development and testing laboratory**.
