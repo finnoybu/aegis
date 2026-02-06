@@ -20,6 +20,52 @@ become clearer.
 
 ---
 
+## Phase 0.5 — Infrastructure & Lab Bring-Up (Non-Executing)
+
+This phase captures the baseline infrastructure work required to support
+Aegis development safely and reproducibly.
+
+Work in this phase:
+- Does NOT add execution capability
+- Does NOT expand Aegis authority
+- Exists solely to support later mediation and validation work
+
+This phase may be partially complete without blocking Phase 1.
+
+### Phase 0.5a — Baseline OS & Host Hardening
+- [X] Bare-metal Debian install (no hypervisor)
+- [X] System fully updated
+- [X] Security-only unattended upgrades enabled
+- [X] Host firewall enabled (SSH-only inbound)
+- [X] Journald logging verified
+
+### Phase 0.5b — Aegis Runtime Scaffolding
+- [X] Create dedicated `aegis` system user and group
+- [X] Create runtime directories with restrictive permissions
+- [X] Document explicit non-capabilities (no execution, no services)
+- [X] Ensure admin access is intentional and auditable
+
+### Phase 0.5c — Storage Preparation (Pre-ZFS)
+- [X] Inventory all disks
+- [X] Validate SMART health
+- [X] Identify mixed sector sizes
+- [X] Re-label HDDs with GPT
+- [ ] Design ZFS topology (no pool creation yet)
+- [ ] Create ZFS pool (explicit future decision)
+
+### Phase 0.5d — SSD Strategy
+- [X] Install OS on primary SSD
+- [ ] Decide on root mirroring strategy (optional)
+- [ ] Implement SSD mirroring (if chosen)
+
+### Phase 0.5e — Network Baseline
+- [X] Stable SSH access
+- [X] DHCP reservation and local DNS mapping
+- [ ] Decide on multi-NIC / DMZ model (future)
+- [ ] Implement network isolation (future, if required)
+
+---
+
 ## Phase 1 — Mediation Skeleton (No Execution)
 
 - [ ] Stub Intent object creation (schema-valid, no side effects)
