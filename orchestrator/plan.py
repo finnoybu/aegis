@@ -16,6 +16,7 @@ from enum import Enum
 from typing import Any, Dict, List, Optional, Tuple
 import uuid
 
+ALLOWED_PLANNING_STATE = "clarified"
 
 class RiskLevel(str, Enum):
     # Must match AEGIS_ACTION_SCHEMA.json enum exactly
@@ -286,3 +287,30 @@ def create_dry_run_plan(
         raise ValueError("Plan failed validation:\n- " + "\n- ".join(errors))
 
     return plan, audit
+
+def plan_from_intent(
+    *,
+    intent,
+    allowed_actions_json: Dict[str, Any],
+    notes: Optional[str] = None,
+) -> Tuple[Plan, PlanAudit]:
+    """
+    Lifecycle-gated entry point for dry-run plan generation.
+
+    Planning is permitted only when intent.state == 'clarified',
+    per AEGIS_INTENT_CARD_SPEC.md.
+    """
+
+    if getattr(intent, "state", None) != ALLOWED_PLANNING_STATE:
+        raise ValueError(
+            f"Intent {getattr(intent, 'intent_id', '<unknown>')} is in state "
+            f"'{getattr(intent, 'state', None)}'. Planning is only permitted "
+            f"from state '{ALLOWED_PLANNING_STATE}'."
+        )
+
+    return create_dry_run_plan(
+        derived_from_intent_id=intent.intent_id,
+        requested_steps=intent.requested_steps,
+        allowed_actions_json=allowed_actions_json,
+        notes=notes,
+    )
