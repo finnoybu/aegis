@@ -77,8 +77,8 @@ Remaining items (ZFS pool creation, SSD mirroring, multi-NIC/DMZ) are
 
 - [X] Stub Intent object creation (schema-valid, no side effects)
 - [X] Implement dry-run planner (plan generation only)
-- [ ] Implement verifier stub (explain-only, never execute)
-- [ ] Implement refusal paths end-to-end
+- [X] Implement verifier stub (explain-only, never execute)
+- [X] Implement refusal paths end-to-end
 - [ ] Render first Intent Card (CLI or simple local web UI)
 - [ ] Wire append-only audit log writer
 
