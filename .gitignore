@@ -23,3 +23,6 @@ __pycache__/
 .venv/
 venv/
 ENV/
+
+# AI Prompts
+chatGPT_training.txt
