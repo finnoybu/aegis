@@ -125,21 +125,23 @@ Aegis V0 daemon starting (mediation-only).
 
 | Document | Purpose |
 |--------|---------|
-| ***Governance & Philosophy*** |
-| [`AEGIS_CANON.md`](AEGIS_CANON.md) | Immutable philosophy and constraints |
-| [`AEGIS_META_INDEX.md`](AEGIS_META_INDEX.md) | Governance index and authority routing |
-| [`AEGIS_DECISIONS.log`](AEGIS_DECISIONS.log) | Append-only record of major design decisions and rationale |
+| ***Planning & Roadmap*** |
+| [`AEGIS_IMPLEMENTATION_ROADMAP.md`](AEGIS_IMPLEMENTATION_ROADMAP.md) | Planned execution phases |
+| [`AEGIS_END_TO_END_WALKTHROUGH.md`](AEGIS_END_TO_END_WALKTHROUGH.md) | Illustrative end-to-end validation of system coherence |
 | ***Architecture & Mediation*** |
 | [`AEGIS_RUNTIME_ARCHITECTURE.md`](AEGIS_RUNTIME_ARCHITECTURE.md) | System architecture |
 | [`AEGIS_INTENT_CARD_SPEC.md`](AEGIS_INTENT_CARD_SPEC.md) | Human–Aegis interface contract |
 | [`AEGIS_ACTION_SCHEMA.json`](AEGIS_ACTION_SCHEMA.json) | Machine-readable execution schema |
 | ***Security & Boundaries*** |
-| [`AEGIS_SECURITY_MODEL.md`](AEGIS_SECURITY_MODEL.md) | Threat model and enforcement assumptions |
 | [`AEGIS_ALLOWED_ACTIONS_V1.json`](AEGIS_ALLOWED_ACTIONS_V1.json) | Explicit power boundary |
 | [`AEGIS_REFUSAL_GUIDELINES.md`](AEGIS_REFUSAL_GUIDELINES.md) | Refusal and clarification behavior |
-| ***Planning & Roadmap*** |
-| [`AEGIS_IMPLEMENTATION_ROADMAP.md`](AEGIS_IMPLEMENTATION_ROADMAP.md) | Planned execution phases |
-| [`AEGIS_END_TO_END_WALKTHROUGH.md`](AEGIS_END_TO_END_WALKTHROUGH.md) | Illustrative end-to-end validation of system coherence |
+| [`AEGIS_SECURITY_MODEL.md`](AEGIS_SECURITY_MODEL.md) | Threat model and enforcement assumptions |
+| [`AEGIS_THREAT_MODEL_APPENDIX.md`](AEGIS_THREAT_MODEL_APPENDIX.md) | Threat class enumeration |
+| ***Governance & Philosophy*** |
+| [`AEGIS_CANON.md`](AEGIS_CANON.md) | Immutable philosophy and constraints |
+| [`AEGIS_META_INDEX.md`](AEGIS_META_INDEX.md) | Governance index and authority routing |
+| [`AEGIS_DECISIONS.log`](AEGIS_DECISIONS.log) | Append-only record of major design decisions and rationale |
+| [`AEGIS_GLOSSARY.md`](AEGIS_GLOSSARY.md) | Glossary of terms |
 | ***Contribution & Process*** | *Before contributing, please read docs below* |
 | [`CONTRIBUTING.md`](CONTRIBUTING.md) | Contribution rules and governance expectations |
 | [`VERSIONING.md`](VERSIONING.md) | Versioning policy for specs and implementation |
