@@ -75,8 +75,8 @@ Remaining items (ZFS pool creation, SSD mirroring, multi-NIC/DMZ) are
 
 ## Phase 1 — Mediation Skeleton (No Execution)
 
-- [ ] Stub Intent object creation (schema-valid, no side effects)
-- [ ] Implement dry-run planner (plan generation only)
+- [X] Stub Intent object creation (schema-valid, no side effects)
+- [X] Implement dry-run planner (plan generation only)
 - [ ] Implement verifier stub (explain-only, never execute)
 - [ ] Implement refusal paths end-to-end
 - [ ] Render first Intent Card (CLI or simple local web UI)
