@@ -1,5 +1,7 @@
 # Aegis — Near-Term Execution Checklist
 
+> **Note:** This checklist reflects the state of the V0 mediation skeleton at the time of archival (March 2026). The project reached Phase 1 (mediation-only, no execution) before development continued in the [aegis-initiative](https://github.com/aegis-initiative) organization across multiple specialized repositories. Phases 2–4 were never executed in this repo — their goals were absorbed into the org's roadmap.
+
 This checklist represents the recommended next steps for Aegis, ordered to
 maximize learning, safety, and momentum while minimizing rework.
 

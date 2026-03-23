@@ -1,4 +1,12 @@
-# Aegis
+# Aegis (Archived)
+
+> **This repository is archived.** It represents the original AEGIS V0 — the founding design from which the entire [AEGIS Initiative](https://github.com/aegis-initiative) ecosystem was built. Active development continues across the organization's repositories. See the [Decomposition](#decomposition) section below for where each component evolved.
+>
+> **Conceptual birth:** January 26, 2026
+> **First commit:** February 4, 2026
+> **Archived:** March 2026
+
+---
 
 Aegis is an **OS-adjacent AI mediation system**.
 
@@ -156,3 +164,24 @@ Canonical authority is defined in [`AEGIS_META_INDEX.md`](AEGIS_META_INDEX.md)
 ## Reminder
 
 Aegis advances when **understanding increases**, not when power increases.
+
+---
+
+## Decomposition
+
+This repository was the monolithic origin of the AEGIS project. Its contents were decomposed into the [`aegis-initiative`](https://github.com/aegis-initiative) organization as the project matured:
+
+| Origin Content | Destination | What It Became |
+|---|---|---|
+| AEGIS_CANON.md, Core Values, Human-Aegis Contract | [aegis-constitution](https://github.com/aegis-initiative/aegis-constitution) | Eleven Constitutional Articles, Doctrine, Principles, Protocols |
+| Runtime Architecture, Action Schema, Intent Card Spec | [aegis-governance](https://github.com/aegis-initiative/aegis-governance) | AGP-1 protocol, reference architecture, JSON schemas |
+| Security Model, Threat Model, Refusal Guidelines | [aegis-governance](https://github.com/aegis-initiative/aegis-governance), [aegis-core](https://github.com/aegis-initiative/aegis-core) | ATM-1 threat model, enforcement engine design |
+| Python code (daemon, orchestrator, verification, refusal) | [aegis-core](https://github.com/aegis-initiative/aegis-core) | Governance runtime, policy engine, risk scoring |
+| Meta Index, Decisions Log, Glossary, Versioning | [aegis](https://github.com/aegis-initiative/aegis) | ADR framework, governance doctrine, org standards |
+| Intent Card UI concept, approval workflows | [aegis-platform](https://github.com/aegis-initiative/aegis-platform) | Operator dashboard, API surface |
+| ALLOW/DENY/ESCALATE/REQUIRE_CONFIRMATION outcomes | [aegis-sdk](https://github.com/aegis-initiative/aegis-sdk) | SDK governance outcomes |
+
+---
+
+*AEGIS™ — "Capability without constraint is not intelligence"™*
+*AEGIS Initiative — Finnoybu IP LLC*

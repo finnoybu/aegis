@@ -13,3 +13,14 @@ Decision: Formalize Aegis as a public, version-controlled repository.
 Rationale: Canonical governance, architecture, and security documents reached sufficient maturity
 to require durable versioning, external review, and change tracking.
 Impact: All future changes are governed by AEGIS_META_INDEX.md and logged explicitly.
+
+## 2026-03-23
+Decision: Archive this repository and migrate to aegis-initiative/aegis-origin.
+Rationale: The AEGIS project has matured into a multi-repository ecosystem under the
+aegis-initiative GitHub organization. This repository — the original V0 — served as
+the monolithic origin from which all current repos were decomposed. Its contents have
+evolved into aegis-constitution (governance charter), aegis-governance (protocol specs),
+aegis-core (enforcement engine), aegis (governance hub), aegis-platform (operator dashboard),
+and aegis-sdk (client libraries).
+Impact: This repository is frozen as a historical artifact. No further development will
+occur here. The DOI snapshot preserves the V0 state for provenance and citation.
